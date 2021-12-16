@@ -5,16 +5,24 @@ if exists("b:current_syntax")
 	finish
 endif
 
-syntax keyword tasksKeyword Bereich
-highlight link tasksKeyword Function
+syntax keyword tasksKeyword Group
+highlight link tasksKeyword Keyword
 
-syntax match myMichael "michael"
-highlight myMichael ctermfg=green ctermbg=white guibg=green
+" dates with wrong format
+syntax match wrongDate "\d\d\d\d-\d-\d\d"
+syntax match wrongDate "\d\d\d\d-\d-\d"
+syntax match wrongDate "\d\d\d\d-\d\d-\d"
+highlight wrongDate ctermbg=red guibg=red ctermfg=black guifg=black
 
-syntax match taskDate "<\d\d\d\d-\d\d-\d\d,"
-syntax match taskDate ">"
-highlight taskDate ctermfg=green guifg=green
+" dates formatted right, past not yet determined
+syntax match rightDate "\d\d\d\d-\d\d-\d\d"
+highlight rightDate ctermfg=green guifg=green
 
+" add pattern
+syntax match repeatPattern "[+|.]*+\d*[d|w|m|y]"
+highlight repeatPattern ctermfg=blue guifg=red
+
+" today are past day get a red color
 function! HighlightPastDates()
 	let days = [
 		\ '01', '02', '03', '04', '05', '06', '07',
@@ -43,10 +51,9 @@ function! HighlightPastDates()
 	execute 'syntax match DiaryDate "' . pattern . '"'
 endfunction
 
-"highlight DiaryDate ctermbg=red guibg=red
 highlight DiaryDate ctermfg=red guifg=red
 call HighlightPastDates()
 
 autocmd ColorScheme,BufRead,BufNewFile * call HighlightPastDates()
 
-let b:current_syntax = "tasks"
+let b:current_syntax = "rtasks"
