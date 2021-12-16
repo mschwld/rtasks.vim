@@ -14,10 +14,10 @@ function! ReplaceDate()
 
 	let adder = addPart[2:-2]
 
-	if(addPart[0] == '+')
-		currentYear = actualYear
-		currentMonth = actualMonth
-		currentDay = actualDay
+	if(addPart[0] == '.')
+		let currentYear = actualYear
+		let currentMonth = actualMonth
+		let currentDay = actualDay
 	endif
 
 	let modifier = addPart[-1:]
