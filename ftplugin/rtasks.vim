@@ -10,7 +10,7 @@ function! ReplaceDate()
 	let actualMonth = strftime('%m')
 	let actualDay = strftime('%d')
 
-	let addPart = matchstr(currentLine, '\(++\|.+\)\d\(d\|m\|y\)')
+	let addPart = matchstr(currentLine, '\(++\|.+\)\d\+\(d\|m\|y\)')
 
 	let adder = addPart[2:-2]
 
@@ -25,6 +25,8 @@ function! ReplaceDate()
 	let newYear = currentYear
 	let newMonth = currentMonth
 	let newDay = currentDay
+
+	echom modifier
 
 	" calculate new date
 	if modifier == 'd'
