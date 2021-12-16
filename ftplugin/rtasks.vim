@@ -26,6 +26,7 @@ function! ReplaceDate()
 	let newMonth = currentMonth
 	let newDay = currentDay
 
+	" calculate new date
 	if modifier == 'd'
 		let i = adder
 		while i > 0
@@ -91,13 +92,20 @@ function! ReplaceDate()
 		newYear = newYear + adder
 	endif
 
+	" write new line
+	if newDay < 10 && len(newDay) == 1
+		let newDay = '0' . newDay 
+	endif
+	if newMonth < 10 && len(newMonth) == 1
+		let newMonth = '0' . newMonth
+	endif
 	let newfulldate = newYear . '-' . newMonth . '-' . newDay
-	echom newfulldate
-	" call substitute(".", "\d\d\d\d-\d\d-\d\d", newfulldate, "g")
 	call setline(line('.'), substitute(getline('.'), '\d\d\d\d-\d\d-\d\d', newfulldate, ''))
 
 	" log action
 	let actualFullDate = strftime('%Y-%m-%d %H:%M')
-	let writeLine = "\nMarked DONE on " . actualFullDate . ": " . currentLine
+	let writeLine = "Marked DONE on " . actualFullDate . ": " . currentLine
 	call writefile(split(writeLine, "\n", 1), ".taskhistory", "a")
 endfunction
+
+nnoremap <Leader>tt :call ReplaceDate()<cr>
