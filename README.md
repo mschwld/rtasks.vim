@@ -2,6 +2,8 @@
 rtasks allows you to keep a simple plain text list of recurring tasks. 
 Each task has a scheduled date. If you mark it as done, the scheduled 
 date will change to the next scheduled date using a certain pattern. 
+You give your files the `rtasks` extension to activate the plugin and syntax 
+highlighting. This plugin uses nothing but Vimscript and has no dependencies.
 
 # Types of recurring tasks
 You have two options:
@@ -32,3 +34,13 @@ the next month has less days than the month with the scheduled task.
 - the history file should reference the filename of the tasks file
 - folding, getting more structure to the file
 - create options to configure
+
+# Syntax highlighting
+Days, which are the present day or days in the past, will be highlighted in a red color. Every 
+other date will appear in green color. Dates using a wrong, or better, not yet supported format, 
+will be highlighted with a red background. 
+
+# Limitations
+I failed to find a good solution for coloring past dates. I have build regular expressions here, so
+i hard-coded past years. There should be a better way of handling this. At least this plugin should 
+support a much larger range of past dates without hard-coding them.
