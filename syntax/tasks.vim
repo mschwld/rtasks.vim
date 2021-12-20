@@ -5,16 +5,29 @@ if exists("b:current_syntax")
 	finish
 endif
 
-syntax keyword tasksKeyword Group
-highlight link tasksKeyword Keyword
+" Group keyword
+syntax keyword groupKeyword Group
+highlight link groupKeyword Keyword
 
-" dates with wrong format
+" Todo keyword
+syntax keyword todoKeyword Todo
+highlight link todoKeyword Keyword
+
+" Recurring keyword
+syntax keyword recKeyword Recurring
+highlight link recKeyword Keyword
+
+" Todo brackets
+syntax match todoItem "\[ \]"
+highlight todoItem ctermfg=blue guifg=blue
+
+" dates: wrong format
 syntax match wrongDate "\d\d\d\d-\d-\d\d"
 syntax match wrongDate "\d\d\d\d-\d-\d"
 syntax match wrongDate "\d\d\d\d-\d\d-\d"
 highlight wrongDate ctermbg=red guibg=red ctermfg=black guifg=black
 
-" dates formatted right, past not yet determined
+" dates: correct format
 syntax match rightDate "\d\d\d\d-\d\d-\d\d"
 highlight rightDate ctermfg=green guifg=green
 
@@ -22,7 +35,7 @@ highlight rightDate ctermfg=green guifg=green
 syntax match repeatPattern "[+|.]*+\d*[d|w|m|y]"
 highlight repeatPattern ctermfg=blue guifg=red
 
-" today are past day get a red color
+" everything >= today gets a red color
 function! HighlightPastDates()
 	let days = [
 		\ '01', '02', '03', '04', '05', '06', '07',
@@ -56,4 +69,4 @@ call HighlightPastDates()
 
 autocmd ColorScheme,BufRead,BufNewFile * call HighlightPastDates()
 
-let b:current_syntax = "rtasks"
+let b:current_syntax = "tasks"

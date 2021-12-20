@@ -4,7 +4,7 @@
 rtasks allows you to keep a simple plain text list of recurring tasks. 
 Each task has a scheduled date. If you mark it as done, the scheduled 
 date will change to the next scheduled date using a certain pattern. 
-You give your files the `rtasks` extension to activate the plugin and syntax 
+You give your files the `tasks` extension to activate the plugin and syntax 
 highlighting. This plugin uses nothing but Vimscript and has no dependencies.
 
 ## Installation
