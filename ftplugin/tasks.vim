@@ -225,7 +225,8 @@ function! ReplaceDate()
 	" log action to history file
 	let actualFullDate = strftime('%Y-%m-%d %H:%M')
 	let writeLine = "Marked DONE on " . actualFullDate . ": " . currentLine
-	call writefile(split(writeLine, "\n", 1), ".taskhistory", "a")
+	let filepath = expand('%:p:h') . '/.taskhistory'
+	call writefile(split(writeLine, "\n", 1), filepath, "a")
 endfunction
 
 " keybindings
