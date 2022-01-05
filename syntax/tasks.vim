@@ -1,5 +1,4 @@
 " Ressources : https://www.reddit.com/r/vim/comments/b1833u/highlight_if_date_is_past/
-" Author : Michael Schoenwaelder <m.schoenwaelder@posteo.de>
 
 if exists("b:current_syntax")
 	finish
