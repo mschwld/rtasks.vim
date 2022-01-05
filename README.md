@@ -23,7 +23,7 @@ There are two options:
 - patterns starting with `.+` will calculate the next date relative to the current date
 - patterns starting with `++` will calculate the next date relative to the scheduled date
 
-In theory, there are tasks where the break between each iteartion matters, like a cleaning
+In theory, there are tasks where the break between each iteration matters, like a cleaning
 task, because you want to wait for new dirt to arrive. But there are tasks where waiting 
 is not mandatory, for example when paying the rent. If you pay it twice, you can skip the next 
 iteration.

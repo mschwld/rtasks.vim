@@ -72,4 +72,5 @@ call HighlightPastDates()
 
 autocmd ColorScheme,BufRead,BufNewFile * call HighlightPastDates()
 
+" activate
 let b:current_syntax = "tasks"
