@@ -3,19 +3,20 @@
 ![Screenshot](/res/screenshot.png)
 
 rtasks allows you to keep a simple plain text list of recurring tasks. 
-Each task has a scheduled date. If you mark it as done, the scheduled 
-date will change to the next calculated date using a certain pattern. 
-You give your files the `tasks` extension to activate the plugin with syntax 
-highlighting. 
+Each task has a scheduled date. If you mark one as done, the scheduled 
+date will change to the next calculated date using a certain pattern right
+after the date. 
 
 ## Installation
 
 ### with vim-plug
 Use this in your `~/.vimrc`:
 
-`Plug 'mschwld/rtasks.vim`
+`Plug 'mschwld/rtasks.vim'`
 
 # Usage
+After installation, use the `.tasks` extension to activate the plugin. An example is provided
+in the `res/` folder.
 
 ## Types of recurring tasks
 There are two options:
@@ -26,7 +27,7 @@ There are two options:
 In theory, there are tasks where the break between each iteration matters, like a cleaning
 task, because you want to wait for new dirt to arrive. But there are tasks where waiting 
 is not mandatory, for example when paying the rent. If you pay it twice, you can skip the next 
-iteration.
+iteration. 
 
 ## Keybindings 
 You can mark a task (a line) as done by pressing `<Leader>tt`. You can change that in 
