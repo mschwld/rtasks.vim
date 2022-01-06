@@ -4,8 +4,8 @@
 
 rtasks allows you to keep a simple plain text list of recurring tasks. 
 Each task has a scheduled date. If you mark one as done, the scheduled 
-date will change to the next calculated date using a certain pattern right
-after the date. 
+date will change to the next calculated date using a certain pattern defined
+right after the date. 
 
 ## Installation
 
