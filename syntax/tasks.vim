@@ -68,7 +68,7 @@ function! HighlightPastDates()
 		let pattern = past_year . '\|' . past_day
 	endif
 
-	echom pattern
+	"echom pattern
 
 	execute 'syntax match DiaryDate "' . pattern . '"'
 endfunction
