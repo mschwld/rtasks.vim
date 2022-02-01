@@ -55,14 +55,20 @@ function! HighlightPastDates()
 	let lasty = y - 1
 	let past_year = '<\(2018\|2019\|2020\|2021\)-\d\d-\d\d,'
 
-	let past_month = '<' . y . '-\(' . join(months[:m-1], '\|') . '\)-\d\d,'
+	let past_month = '<' . y . '-\(' . join(months[:m-2], '\|') . '\)-\d\d,'
 	let past_day = '<' . y . '-' . m . '-\(' . join(days[:d-1], '\|') . '\),'
 
 	if m != "01"
-		let pattern = past_year . '\|' . past_month . '\|' . past_day
+		if d == "01"
+			let pattern = past_year . '\|' . past_month
+		else
+			let pattern = past_year . '\|' . past_month . '\|' . past_day
+		endif
 	else
 		let pattern = past_year . '\|' . past_day
 	endif
+
+	echom pattern
 
 	execute 'syntax match DiaryDate "' . pattern . '"'
 endfunction
