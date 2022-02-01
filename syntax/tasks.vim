@@ -59,16 +59,12 @@ function! HighlightPastDates()
 	let past_day = '<' . y . '-' . m . '-\(' . join(days[:d-1], '\|') . '\),'
 
 	if m != "01"
-		if d == "01"
-			let pattern = past_year . '\|' . past_month
-		else
-			let pattern = past_year . '\|' . past_month . '\|' . past_day
-		endif
+		let pattern = past_year . '\|' . past_month . '\|' . past_day
 	else
 		let pattern = past_year . '\|' . past_day
 	endif
 
-	"echom pattern
+	" echom pattern
 
 	execute 'syntax match DiaryDate "' . pattern . '"'
 endfunction
