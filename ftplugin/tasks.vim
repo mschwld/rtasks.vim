@@ -64,7 +64,7 @@ function! Add_Weeks(day, month, year, weeks)
 				else
 					let day = day + 7
 				endif
-			elseif
+			else
 				if day+7 > 29
 					let day = (day+7)-29
 					let month = month + 1
