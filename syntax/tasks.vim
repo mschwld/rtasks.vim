@@ -32,15 +32,15 @@ highlight aLink cterm=underline gui=underline
 
 " groups
 syntax match aComment "^\#.*$"
-highlight aComment ctermfg=blue cterm=italic guifg=blue
+highlight aComment ctermfg=blue cterm=italic guifg=#6bcbe0
 
 " dates: correct format
 syntax match rightDate "\d\d\d\d-\d\d-\d\d"
-highlight rightDate ctermfg=green guifg=green
+highlight rightDate ctermfg=green guifg=#7edb7a
 
 " add pattern
 syntax match repeatPattern "[+|.]*+\d*[d|w|m|y]"
-highlight repeatPattern ctermfg=blue guifg=red
+highlight repeatPattern ctermfg=blue guifg=#db817a
 
 " everything >= today gets a red color
 function! HighlightPastDates()
@@ -77,7 +77,7 @@ function! HighlightPastDates()
 	execute 'syntax match DiaryDate "' . pattern . '"'
 endfunction
 
-highlight DiaryDate ctermfg=red guifg=red
+highlight DiaryDate ctermfg=red guifg=#db817a
 call HighlightPastDates()
 
 autocmd ColorScheme,BufRead,BufNewFile * call HighlightPastDates()
