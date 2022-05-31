@@ -5,8 +5,8 @@ if exists("b:current_syntax")
 endif
 
 " Group keyword
-syntax keyword groupKeyword Group
-highlight link groupKeyword Keyword
+" syntax keyword groupKeyword Group
+" highlight link groupKeyword Keyword
 
 " Todo keyword
 syntax keyword todoKeyword Todo
@@ -25,6 +25,14 @@ syntax match wrongDate "\d\d\d\d-\d-\d\d"
 syntax match wrongDate "\d\d\d\d-\d-\d"
 syntax match wrongDate "\d\d\d\d-\d\d-\d"
 highlight wrongDate ctermbg=red guibg=red ctermfg=black guifg=black
+
+" links
+syntax match aLink "http.*$"
+highlight aLink cterm=underline gui=underline
+
+" groups
+syntax match aComment "^\#.*$"
+highlight aComment ctermfg=blue cterm=italic guifg=blue
 
 " dates: correct format
 syntax match rightDate "\d\d\d\d-\d\d-\d\d"
