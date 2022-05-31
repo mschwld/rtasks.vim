@@ -32,7 +32,7 @@ highlight aLink cterm=underline gui=underline
 
 " groups
 syntax match aComment "^\#.*$"
-highlight aComment ctermfg=blue cterm=italic guifg=#6bcbe0
+highlight aComment ctermfg=blue cterm=italic guifg=#6bcbe0 gui=italic
 
 " dates: correct format
 syntax match rightDate "\d\d\d\d-\d\d-\d\d"
